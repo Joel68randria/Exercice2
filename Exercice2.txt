@@ -1,0 +1,52 @@
+Fonction entrer_fonction_logique():
+    Demander à l'utilisateur d'entrer la fonction logique
+    Retourner la fonction logique entrée
+
+Fonction construire_table_de_Karnaugh(variables):
+    Initialiser une table vide
+    Pour chaque combinaison possible d'assignation des variables:
+        Demander à l'utilisateur d'entrer la valeur de la fonction pour cette assignation
+        Ajouter l'assignation et sa valeur à la table
+    Retourner la table de Karnaugh
+
+Fonction identifier_groupes_adjacents(table):
+    Initialiser une liste de groupes vide
+    Pour chaque assignation et valeur dans la table:
+        Si la valeur est 1:
+            Créer un groupe contenant cette assignation
+            Pour chaque assignation voisine ayant une valeur de 1:
+                Ajouter l'assignation au groupe
+            Si le groupe contient plus d'une assignation:
+                Ajouter le groupe à la liste de groupes
+    Retourner la liste de groupes identifiés
+
+Fonction simplifier_groupes(groupes):
+    Pour chaque groupe dans la liste de groupes:
+        Simplifier le groupe
+    Retourner la liste de groupes simplifiés
+
+Fonction simplifier_groupe(groupe):
+    Pour chaque terme dans le groupe:
+        Simplifier le terme
+    Retourner le groupe simplifié
+
+Fonction reconstruire_fonction_simplifiee(groupes):
+    Initialiser une chaîne vide pour la fonction simplifiée
+    Pour chaque groupe dans la liste de groupes:
+        Ajouter le groupe à la chaîne de la fonction simplifiée
+    Retourner la fonction simplifiée
+
+Fonction afficher_fonction_simplifiee(fonction_simplifiee):
+    Afficher la fonction simplifiée
+
+Fonction principale():
+    fonction_logique = entrer_fonction_logique()
+    variables = ['A', 'B', 'C']
+    table_de_Karnaugh = construire_table_de_Karnaugh(variables)
+    groupes_adjacents = identifier_groupes_adjacents(table_de_Karnaugh)
+    groupes_simplifies = simplifier_groupes(groupes_adjacents)
+    fonction_simplifiee = reconstruire_fonction_simplifiee(groupes_simplifies)
+    afficher_fonction_simplifiee(fonction_simplifiee)
+
+Si __name__ == "__main__":
+    Appeler la fonction principale()
